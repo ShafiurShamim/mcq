@@ -48,4 +48,15 @@ class Handler extends ExceptionHandler
     {
         return parent::render($request, $exception);
     }
+
+    /**
+     * Get the response content for the given exception.
+     *
+     * @param  \Exception  $e
+     * @return string
+     */
+    protected function renderExceptionContent(Exception $e)
+    {
+        return $this->renderExceptionWithSymfony($e, config('app.debug'));
+    }
 }
