@@ -16,6 +16,7 @@ class CreateTopicsTable extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50);
+            $table->string('slug')->index();
             $table->unsignedInteger('subject_id');
             $table->unsignedInteger('questions_count')->default(0);
             $table->string('description')->nullable();

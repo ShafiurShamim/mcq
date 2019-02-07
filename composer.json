@@ -36,6 +36,9 @@
         "psr-4": {
             "App\\": "app/"
         },
+        "files": [
+            "app\\Http\\Helpers.php"
+        ],
         "classmap": [
             "database/seeds",
             "database/factories"
@@ -44,7 +47,10 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "tests/utilities/functions.php"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

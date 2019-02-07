@@ -16,9 +16,11 @@ class CreateSubjectsTable extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50);
+            $table->string('slug')->index();
             $table->unsignedInteger('grade_id');
             $table->string('description')->nullable();
             $table->string('color', 7)->default('#000000');
+            //$table->unsignedInteger('topics_count')->default(0);
             $table->timestamps();
 
             $table->foreign('grade_id')->references('id')

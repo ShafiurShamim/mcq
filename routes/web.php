@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'McqController@index')->name('index');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/exam/make/{grade}/{subject}/{topic}', 'McqExamController@make')->name('exam.make');
+Route::get('/exam/bench/{grade}/{subject}/{topic}', 'McqExamController@bench')->name('exam.bench');

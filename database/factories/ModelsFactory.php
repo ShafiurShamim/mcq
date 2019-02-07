@@ -13,8 +13,10 @@ $factory->define(App\Grade::class, function (Faker $faker) {
 });
 
 $factory->define(App\Subject::class, function ($faker) {
+    $name = "Subject-{$faker->unique()->word}";
     return [
-        'name' => "Subject-{$faker->unique()->word}",
+        'name' => $name,
+        'slug' => str_slug($name),
         'grade_id' => function () {
             return factory(\App\Grade::class)->create()->id;
         },
@@ -24,8 +26,10 @@ $factory->define(App\Subject::class, function ($faker) {
 });
 
 $factory->define(App\Topic::class, function ($faker) {
+    $name = "Topic-{$faker->unique()->word}";
     return [
-        'name' => "Topic-{$faker->unique()->word}",
+        'name' => $name,
+        'slug' => str_slug($name),
         'subject_id' => function () {
             return factory(\App\Subject::class)->create()->id;
         },
